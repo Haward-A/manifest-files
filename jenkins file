@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('cleanup workspace'){
+            steps {
+                cleanWs()
+            }
+        }
+        stage(updating k8s deployment){
+            steps {
+                sh "cat car-deployment.yml"
+            }
+        }
+    }
+}
